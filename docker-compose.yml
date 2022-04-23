@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   client:
-    image: "mcq_client:1.0.0"
+    image: "fquirogam/mcq_client:1.0.0"
     depends_on:
       - server
     deploy:
@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   server:
-    image: "mcq_server:1.0.0"
+    image: "fquirogam/mcq_server:1.0.0"
     deploy:
       resources:
         limits:
