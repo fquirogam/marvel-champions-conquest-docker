@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  client:
+    image: "mcq_client:1.0.0"
+    depends_on:
+      - server
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - mcq_bridged
+    ports:
+      - 3000:80
+    restart: unless-stopped
+
+  server:
+    image: "mcq_server:1.0.0"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - mcq_bridged
+    ports:
+      - 9000:9000
+    restart: unless-stopped
+
+networks:
+  mcq_bridged:
+    driver: bridge
